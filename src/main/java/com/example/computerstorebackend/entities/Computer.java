@@ -6,6 +6,7 @@ import com.example.computerstorebackend.entities.memory.Memory;
 import com.example.computerstorebackend.entities.processor.Processor;
 import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Entity
+@NoArgsConstructor
 @Table(name = "computer")
 @Accessors(chain = true)
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -44,19 +46,19 @@ public class Computer extends AuditMetadata {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id")
+    @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
 
     @ManyToOne
-    @JoinColumn(name = "processor_id")
+    @JoinColumn(name = "processor_id", nullable = false)
     private Processor processor;
 
     @ManyToOne
-    @JoinColumn(name = "memory_id")
+    @JoinColumn(name = "memory_id", nullable = false)
     private Memory memory;
 
     @ManyToOne
-    @JoinColumn(name = "hard_disk_id")
+    @JoinColumn(name = "hard_disk_id", nullable = false)
     private HardDisk hardDisk;
 
     @MapKey(name = "id")
@@ -67,6 +69,7 @@ public class Computer extends AuditMetadata {
         this.key = computerBuilder.getKey();
         this.name = computerBuilder.getName();
         this.modelNumber = computerBuilder.getModelNumber();
+        this.price = computerBuilder.getPrice();
         this.brand = computerBuilder.getBrand();
         this.processor = computerBuilder.getProcessor();
         this.memory = computerBuilder.getMemory();

@@ -46,13 +46,8 @@ public class HardDiskService {
 
     }
 
-    public HardDiskDto.ViewHardDisk viewHardDisk(int amount, String type) {
-        HardDiskType hardDiskType = getHardDiskType(type);
-
-        HardDisk hardDisk = hardDiskRepository.findByAmountAndHardDiskType(amount, hardDiskType)
-                                              .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found hard disk with type {}", type));
-
-        return hardDisk.view();
+    public HardDiskDto.ViewHardDisk viewHardDisk(String key) {
+        return getHardDisk(key).view();
     }
 
     public HardDiskDto.ViewLisHardDisk viewHardDiskPage(int pageNumber, int pageSize) {

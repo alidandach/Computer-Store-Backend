@@ -58,9 +58,9 @@ public class ProcessorController {
         return new ClientResponse<>(StatusCode.SUCCESS);
     }
 
-    @GetMapping("/processor/{id}")
-    public ClientResponse<ProcessorDto.ViewProcessor> viewProcessor(@PathVariable Integer id) {
-        return new ClientResponse<>(StatusCode.SUCCESS, processorService.viewProcessor(id));
+    @GetMapping("/processor/{key}")
+    public ClientResponse<ProcessorDto.ViewProcessor> viewProcessor(@PathVariable String key) {
+        return new ClientResponse<>(StatusCode.SUCCESS, processorService.viewProcessor(key));
     }
 
     @GetMapping("/processor")

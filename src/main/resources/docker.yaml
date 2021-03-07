@@ -1,5 +1,5 @@
 server:
-  port: 8104
+  port: 9595
   http2:
     enabled: true
 
@@ -9,7 +9,7 @@ spring:
   datasource:
     username: postgres
     password: root
-    url: jdbc:postgresql://localhost:5432/pos
+    url: jdbc:postgresql://db:5432/compose-postgres
     driver-class-name: org.postgresql.Driver
     data: classpath*:schema.sql
     initialization-mode: always

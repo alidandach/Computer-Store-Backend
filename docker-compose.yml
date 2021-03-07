@@ -13,6 +13,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=compose-postgres
       - SPRING_DATASOURCE_PASSWORD=compose-postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "127.0.0.1:9595:9595"
 
   db:
     image: 'postgres:13.1-alpine'

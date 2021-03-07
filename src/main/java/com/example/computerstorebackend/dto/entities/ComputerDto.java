@@ -30,6 +30,9 @@ public class ComputerDto {
         private String modelNumber;
 
         @StringValue(isRequired = true)
+        private String brandKey;
+
+        @StringValue(isRequired = true)
         private String processorKey;
 
         @StringValue(isRequired = true)
@@ -61,6 +64,7 @@ public class ComputerDto {
         private final String key;
         private final String name;
         private final String modelNumber;
+        private final double price;
         private final Brand brand;
         private final Processor processor;
         private final Memory memory;

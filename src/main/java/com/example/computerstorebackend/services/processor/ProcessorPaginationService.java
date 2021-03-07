@@ -30,14 +30,14 @@ public class ProcessorPaginationService {
     }
 
     public ProcessorDto.ViewListSocketType viewSocketPage(int pageNumber, int pageSize) {
-        Page<SocketType> all = socketTypePaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("amount")));
+        Page<SocketType> all = socketTypePaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new ProcessorDto.ViewListSocketType(all.stream()
                                                                .map(SocketType::view)
                                                                .collect(Collectors.toList()));
     }
 
     public ProcessorDto.ViewListProcessor viewProcessorPage(int pageNumber, int pageSize) {
-        Page<Processor> all = processorPaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("amount")));
+        Page<Processor> all = processorPaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new ProcessorDto.ViewListProcessor(all.stream()
                                                               .map(Processor::view)
                                                               .collect(Collectors.toList()));

@@ -43,12 +43,8 @@ public class MemoryService {
 
     }
 
-    public MemoryDto.ViewMemory viewMemory(int amount, String type) {
-        MemoryType memoryType = getMemoryType(type);
-
-        return memoryRepository.findByAmountAndMemoryType(amount, memoryType)
-                               .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found memory with type {}", type))
-                               .view();
+    public MemoryDto.ViewMemory viewMemory(String key) {
+        return getMemory(key).view();
     }
 
     public MemoryDto.ViewLisMemory viewMemoryPage(int pageNumber, int pageSize) {

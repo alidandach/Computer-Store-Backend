@@ -33,6 +33,11 @@ public class ComputerService {
                           });
 
         Computer computer = new Computer(ComputerDto.ComputerBuilder.builder()
+                                                                    .key(request.getKey())
+                                                                    .name(request.getName())
+                                                                    .modelNumber(request.getModelNumber())
+                                                                    .price(request.getPrice())
+                                                                    .brand(deviceService.getBrand(request.getBrandKey()))
                                                                     .processor(deviceService.getProcessor(request.getProcessorKey()))
                                                                     .memory(deviceService.getMemory(request.getMemoryKey()))
                                                                     .hardDisk(deviceService.getHardDisk(request.getHardDiskKey()))

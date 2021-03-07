@@ -68,10 +68,8 @@ public class ProcessorService {
         processorRepository.save(new Processor(addProcessor,socketType,chipsetType));
     }
 
-    public ProcessorDto.ViewProcessor viewProcessor(int id) {
-        return processorRepository.findById(id)
-                                  .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found processor with id {}", id))
-                                  .view();
+    public ProcessorDto.ViewProcessor viewProcessor(String key) {
+        return getProcessor(key).view();
     }
 
     public ProcessorDto.ViewListProcessor viewProcessorPage(int pageNumber, int pageSize) {

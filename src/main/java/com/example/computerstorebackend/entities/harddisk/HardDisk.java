@@ -16,7 +16,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name = "hard_disk", uniqueConstraints = {@UniqueConstraint(columnNames = {"hard_disk_amout", "hard_disk_type_id"})})
+@Table(name = "hard_disk", uniqueConstraints = {@UniqueConstraint(columnNames = {"hard_disk_amount", "hard_disk_type_id"})})
 public class HardDisk extends AuditMetadata {
     @Id
     @Getter

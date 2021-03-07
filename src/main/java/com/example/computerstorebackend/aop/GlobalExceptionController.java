@@ -12,6 +12,7 @@ import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,6 +50,14 @@ public class GlobalExceptionController {
             response.addViolation(new Violation(error.getField(), error.getDefaultMessage()));
 
         return response;
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = {MissingServletRequestParameterException.class})
+    public ClientResponse<ClientData> parametersNotFound(MissingServletRequestParameterException exception) {
+        log.warn(exception.getMessage());
+        return new ClientResponse<>(StatusCode.HTTP_METHOD_NOT_SUPPORTED);
     }
 
     @ResponseBody

@@ -41,9 +41,9 @@ public class HardDiskController {
         return new ClientResponse<>(StatusCode.SUCCESS);
     }
 
-    @GetMapping("/hard-disk/")
-    public ClientResponse<HardDiskDto.ViewHardDisk> viewHardDisk(@RequestParam int amount, @RequestParam String type) {
-        return new ClientResponse<>(StatusCode.SUCCESS, hardDiskService.viewHardDisk(amount, type));
+    @GetMapping("/hard-disk/{key}")
+    public ClientResponse<HardDiskDto.ViewHardDisk> viewHardDisk(@PathVariable String key) {
+        return new ClientResponse<>(StatusCode.SUCCESS, hardDiskService.viewHardDisk(key));
     }
 
     @GetMapping("/hard-disk")

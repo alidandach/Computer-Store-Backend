@@ -1,0 +1,727 @@
+{
+	"info": {
+		"_postman_id": "4174d23d-2e40-4b92-93d7-6981d3237271",
+		"name": "Computer Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "brand",
+			"item": [
+				{
+					"name": "View Brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/brand/intel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"brand",
+								"intel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Brand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"intel\",\n  \"name\": \"intel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/brand",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/brand?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"brand"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hard-disk",
+			"item": [
+				{
+					"name": "Add Hard-disk Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"SSD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/hard-disk-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"hard-disk-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Hard-disk Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/hard-disk-type/SSD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"hard-disk-type",
+								"SSD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Hard-disk Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/hard-disk-type?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"hard-disk-type"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Hard-disk",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"480gb-ssd\",\n  \"amount\": 480,\n  \"type\": \"SSD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/hard-disk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"hard-disk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Hard-disk",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/hard-disk/480gb-ssd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"hard-disk",
+								"480gb-ssd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Hard-disk",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/hard-disk?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"hard-disk"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "memory",
+			"item": [
+				{
+					"name": "Add Memory Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"DDR4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/memory-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"memory-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Memory Type ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/memory-type/DDR4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"memory-type",
+								"DDR4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Memory Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/memory-type?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"memory-type"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Memory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"32-gb-ddr4\",\n  \"amount\": 32,\n  \"type\": \"DDR4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/memory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"memory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Memory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/memory/32-gb-ddr4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"memory",
+								"32-gb-ddr4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Memory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/memory?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"memory"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "processor",
+			"item": [
+				{
+					"name": "Add Chipset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"X299\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/chipset-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"chipset-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Chipset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/chipset-type/X299",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"chipset-type",
+								"X299"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Chipset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/chipset-type?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"chipset-type"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Socket Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"LGA2066\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/socket-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"socket-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Socker Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/socket-type/LGA2066",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"socket-type",
+								"LGA2066"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Socket Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/socket-type?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"socket-type"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Processor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"key\": \"FCLGA3647\",\n  \"baseClockSpeed\": 100000,\n  \"maxTurboSpeed\": 100000,\n  \"overclocking\": \"XV\",\n  \"coreCount\": 12,\n  \"threadCount\": 24,\n  \"l1CacheAmount\": 128,\n  \"l2CacheAmount\": 512,\n  \"l3CacheAmount\": 1024,\n  \"memorySupport\": \"SR36V\",\n  \"numberOfChannel\": 10,\n  \"thermalDesignPower\": \"B1\",\n  \"fabricationProcess\": \"A0\",\n  \"socketType\": \"LGA2066\",\n  \"chipsetType\": \"X299\",\n  \"integratedGraphics\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/processor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"processor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Processor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/processor/FCLGA3647",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"processor",
+								"FCLGA3647"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Processor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/processor?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"processor"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "computer",
+			"item": [
+				{
+					"name": "Add Computer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key\": \"47101808XDRF15\",\n    \"name\": \"HP Gaming\",\n    \"modelNumber\": \"A315-55G-796C\",\n    \"brandKey\":\"intel\",\n    \"processorKey\": \"FCLGA3647\",\n    \"memoryKey\": \"32-gb-ddr4\",\n    \"hardDiskKey\": \"480gb-ssd\",\n    \"price\": 1000.1000,\n    \"pictures\": [\n        {\n            \"name\": \"front\",\n            \"value\": \"sdafghjklkjhgfdsaasasdfhgj\"\n        },\n        {\n            \"name\": \"back\",\n            \"value\": \"sdafghjklkjhgfdsaasasdfhgj\"\n        },\n        {\n            \"name\": \"logo\",\n            \"value\": \"sdafghjklkjhgfdsaasasdfhgj\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/computer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"computer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Computer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/computer/47101808XDRF10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"computer",
+								"47101808XDRF10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Pagination Computer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/computer?pageSize=10&pageNumber=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"computer"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

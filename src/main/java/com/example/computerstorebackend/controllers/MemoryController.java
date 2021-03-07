@@ -41,9 +41,9 @@ public class MemoryController {
         return new ClientResponse<>(StatusCode.SUCCESS);
     }
 
-    @GetMapping("/memory/")
-    public ClientResponse<MemoryDto.ViewMemory> viewMemory(@RequestParam int amount, @RequestParam String type) {
-        return new ClientResponse<>(StatusCode.SUCCESS, memoryService.viewMemory(amount, type));
+    @GetMapping("/memory/{key}")
+    public ClientResponse<MemoryDto.ViewMemory> viewMemory(@PathVariable String key) {
+        return new ClientResponse<>(StatusCode.SUCCESS, memoryService.viewMemory(key));
     }
 
     @GetMapping("/memory")

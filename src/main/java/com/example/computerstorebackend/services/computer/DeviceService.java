@@ -1,8 +1,10 @@
 package com.example.computerstorebackend.services.computer;
 
+import com.example.computerstorebackend.entities.Brand;
 import com.example.computerstorebackend.entities.harddisk.HardDisk;
 import com.example.computerstorebackend.entities.memory.Memory;
 import com.example.computerstorebackend.entities.processor.Processor;
+import com.example.computerstorebackend.services.brand.BrandService;
 import com.example.computerstorebackend.services.harddisk.HardDiskService;
 import com.example.computerstorebackend.services.memory.MemoryService;
 import com.example.computerstorebackend.services.processor.ProcessorService;
@@ -13,9 +15,15 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class DeviceService {
+    private final BrandService brandService;
     private final MemoryService memoryService;
     private final HardDiskService hardDiskService;
     private final ProcessorService processorService;
+
+    @Cacheable(value = "processor", key = "{#key}")
+    public Brand getBrand(String key) {
+        return brandService.getBrand(key);
+    }
 
     @Cacheable(value = "processor", key = "{#key}")
     public Processor getProcessor(String key) {

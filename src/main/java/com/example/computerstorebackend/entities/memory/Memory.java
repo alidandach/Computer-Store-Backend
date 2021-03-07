@@ -16,7 +16,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name = "memory", uniqueConstraints = {@UniqueConstraint(columnNames = {"memory_amout", "memory_type_id"})})
+@Table(name = "memory", uniqueConstraints = {@UniqueConstraint(columnNames = {"memory_amount", "memory_type_id"})})
 public class Memory extends AuditMetadata {
     @Id
     @Getter
