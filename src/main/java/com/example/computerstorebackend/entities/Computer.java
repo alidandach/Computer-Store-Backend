@@ -1,10 +1,11 @@
 package com.example.computerstorebackend.entities;
 
+import com.example.computerstorebackend.dto.entities.ComputerDto;
 import com.example.computerstorebackend.entities.harddisk.HardDisk;
 import com.example.computerstorebackend.entities.memory.Memory;
 import com.example.computerstorebackend.entities.processor.Processor;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Entity
@@ -26,12 +28,24 @@ public class Computer extends AuditMetadata {
     private Integer id;
 
     @Getter
+    @Column(name = "key", unique = true, nullable = false)
+    private String key;
+
+    @Getter
     @Column(name = "device_name", nullable = false)
     private String name;
 
     @Getter
     @Column(name = "model_number", nullable = false)
     private String modelNumber;
+
+    @Getter
+    @Column(name = "computer_price", nullable = false)
+    private double price;
+
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
     @ManyToOne
     @JoinColumn(name = "processor_id")
@@ -49,9 +63,11 @@ public class Computer extends AuditMetadata {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "computer")
     private Map<Integer, Picture> pictures;
 
-    public Computer(ComputerBuilder computerBuilder) {
+    public Computer(ComputerDto.ComputerBuilder computerBuilder) {
+        this.key = computerBuilder.getKey();
         this.name = computerBuilder.getName();
         this.modelNumber = computerBuilder.getModelNumber();
+        this.brand = computerBuilder.getBrand();
         this.processor = computerBuilder.getProcessor();
         this.memory = computerBuilder.getMemory();
         this.hardDisk = computerBuilder.getHardDisk();
@@ -59,14 +75,26 @@ public class Computer extends AuditMetadata {
         pictures = new HashMap<>();
     }
 
-    @Getter
-    @Setter
-    @Accessors(chain = true)
-    public static class ComputerBuilder {
-        private String name;
-        private String modelNumber;
-        private Processor processor;
-        private Memory memory;
-        private HardDisk hardDisk;
+    public ComputerDto.ViewComputer view() {
+        return new ComputerDto.ViewComputer().setKey(key)
+                                             .setName(name)
+                                             .setModelNumber(modelNumber)
+                                             .setBrand(brand.getName())
+                                             .setProcessorKey(processor.getKey())
+                                             .setProcessorCore(processor.getCoreCount())
+                                             .setProcessorThread(processor.getThreadCount())
+                                             .setSocketType(processor.getSocketType())
+                                             .setChipsetType(processor.getChipsetType())
+                                             .setMemoryAmount(memory.getAmount())
+                                             .setMemoryType(memory.getType())
+                                             .setHardDiskAmount(hardDisk.getAmount())
+                                             .setHardDiskType(hardDisk.getType())
+                                             .setPrice(price)
+                                             .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                             .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null)
+                                             .setPictures(pictures.values()
+                                                                  .stream()
+                                                                  .map(Picture::view)
+                                                                  .collect(Collectors.toList()));
     }
 }

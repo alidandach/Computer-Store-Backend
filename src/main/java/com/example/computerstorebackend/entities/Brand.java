@@ -1,5 +1,7 @@
 package com.example.computerstorebackend.entities;
 
+import com.example.computerstorebackend.dto.entities.BrandDto;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +34,12 @@ public class Brand extends AuditMetadata{
         this.name = name;
         this.createdDate = new Date();
         log.debug("save new brand with key {} and name {}", key, name);
+    }
+
+    public BrandDto.ViewBrand view (){
+        return new BrandDto.ViewBrand().setKey(key)
+                                       .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                       .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
     public void update(String key, String name) {

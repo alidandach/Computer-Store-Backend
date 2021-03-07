@@ -1,6 +1,8 @@
 package com.example.computerstorebackend.entities.harddisk;
 
+import com.example.computerstorebackend.dto.entities.HardDiskDto;
 import com.example.computerstorebackend.entities.AuditMetadata;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,13 +27,19 @@ public class HardDiskType extends AuditMetadata {
     @Column(name = "hard_disk_key", unique = true, nullable = false)
     private String key;
 
-    public HardDiskType(String key){
+    public HardDiskType(String key) {
         this.key = key;
         this.createdDate = new Date();
         log.debug("save new hard disk type with key {}", key);
     }
 
-    public void update(String key){
+    public HardDiskDto.ViewHardDiskType view() {
+        return new HardDiskDto.ViewHardDiskType().setKey(key)
+                                                 .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                                 .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
+    }
+
+    public void update(String key) {
         log.debug("change hard disk type key from {} to {}", this.key, key);
         this.key = key;
         updatedDate = new Date();

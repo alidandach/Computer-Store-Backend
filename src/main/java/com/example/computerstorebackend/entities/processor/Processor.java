@@ -1,7 +1,8 @@
 package com.example.computerstorebackend.entities.processor;
 
-import com.example.computerstorebackend.dto.ProcessorDto;
+import com.example.computerstorebackend.dto.entities.ProcessorDto;
 import com.example.computerstorebackend.entities.AuditMetadata;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,10 @@ public class Processor extends AuditMetadata {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Getter
+    @Column(name = "key", unique = true, nullable = false)
+    private String key;
 
     @Getter
     @Column(name = "base_clock_speed", nullable = false)
@@ -65,13 +70,13 @@ public class Processor extends AuditMetadata {
     @Column(name = "thermal_design_power", nullable = false)
     private String thermalDesignPower;
 
-    @Getter
     @Column(name = "fabrication_process", nullable = false)
     private String fabricationProcess;
 
     @ManyToOne
     @JoinColumn(name = "socket_type_id")
     private SocketType socketType;
+
 
     @ManyToOne
     @JoinColumn(name = "chipset_type_id")
@@ -82,6 +87,7 @@ public class Processor extends AuditMetadata {
     private boolean integratedGraphics;
 
     public Processor(ProcessorDto.AddProcessor dto, SocketType socketType, ChipsetType chipsetType) {
+        this.key = dto.getKey();
         this.baseClockSpeed = dto.getBaseClockSpeed();
         this.maxTurboSpeed = dto.getMaxTurboSpeed();
         this.overclocking = dto.getOverclocking();
@@ -96,7 +102,35 @@ public class Processor extends AuditMetadata {
         this.fabricationProcess = dto.getFabricationProcess();
         this.socketType = socketType;
         this.chipsetType = chipsetType;
-        this.integratedGraphics = dto.isIntegratedGraphics();
+        this.integratedGraphics = dto.getIntegratedGraphics();
         this.createdDate = new Date();
+    }
+
+    public ProcessorDto.ViewProcessor view() {
+        return new ProcessorDto.ViewProcessor().setBaseClockSpeed(baseClockSpeed)
+                                               .setMaxTurboSpeed(maxTurboSpeed)
+                                               .setOverclocking(overclocking)
+                                               .setCoreCount(coreCount)
+                                               .setThreadCount(threadCount)
+                                               .setL1CacheAmount(l1CacheAmount)
+                                               .setL2CacheAmount(l2CacheAmount)
+                                               .setL3CacheAmount(l3CacheAmount)
+                                               .setMemorySupport(memorySupport)
+                                               .setNumberOfChannel(numberOfChannel)
+                                               .setThermalDesignPower(thermalDesignPower)
+                                               .setFabricationProcess(fabricationProcess)
+                                               .setSocketType(socketType.getKey())
+                                               .setChipsetType(chipsetType.getKey())
+                                               .setIntegratedGraphics(integratedGraphics)
+                                               .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                               .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
+    }
+
+    public String getSocketType() {
+        return socketType.getKey();
+    }
+
+    public String getChipsetType() {
+        return chipsetType.getKey();
     }
 }

@@ -1,6 +1,8 @@
 package com.example.computerstorebackend.entities.memory;
 
+import com.example.computerstorebackend.dto.entities.MemoryDto;
 import com.example.computerstorebackend.entities.AuditMetadata;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,18 +26,34 @@ public class Memory extends AuditMetadata {
     private Integer id;
 
     @Getter
-    @Column(name = "memory_amout", nullable = false)
+    @Column(name = "key", unique = true, nullable = false)
+    private String key;
+
+    @Getter
+    @Column(name = "memory_amount", nullable = false)
     private int amount;
 
     @ManyToOne
     @JoinColumn(name = "memory_type_id")
     private MemoryType memoryType;
 
-    public Memory(int amount, MemoryType memoryType) {
+    public Memory(String key, int amount, MemoryType memoryType) {
+        this.key = key;
         this.amount = amount;
         this.memoryType = memoryType;
         this.createdDate = new Date();
         log.debug("save new memory with amount {} and type {}", amount, memoryType.getKey());
+    }
+
+    public MemoryDto.ViewMemory view() {
+        return new MemoryDto.ViewMemory().setAmount(amount)
+                                         .setType(memoryType.getKey())
+                                         .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                         .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
+    }
+
+    public String getType(){
+        return memoryType.getKey();
     }
 
     @Override

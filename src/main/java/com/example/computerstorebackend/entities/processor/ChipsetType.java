@@ -1,6 +1,9 @@
 package com.example.computerstorebackend.entities.processor;
 
+import com.example.computerstorebackend.dto.entities.MemoryDto;
+import com.example.computerstorebackend.dto.entities.ProcessorDto;
 import com.example.computerstorebackend.entities.AuditMetadata;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +32,12 @@ public class ChipsetType extends AuditMetadata {
         this.key = key;
         this.createdDate = new Date();
         log.debug("save new socket type {}", key);
+    }
+
+    public ProcessorDto.ViewChipsetType view() {
+        return new ProcessorDto.ViewChipsetType().setKey(key)
+                                             .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                             .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
     @Override

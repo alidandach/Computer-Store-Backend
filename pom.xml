@@ -21,6 +21,10 @@
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!--project dependencies-->
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <apache-common-lang.version>2.5</apache-common-lang.version>
     </properties>
 
     <dependencies>
@@ -72,6 +76,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--validation api-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api.version}</version>
+        </dependency>
+
+        <!--Apache Common-->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${apache-common-lang.version}</version>
         </dependency>
     </dependencies>
 

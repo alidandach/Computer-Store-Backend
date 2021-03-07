@@ -1,5 +1,7 @@
 package com.example.computerstorebackend.entities;
 
+import com.example.computerstorebackend.dto.entities.ComputerDto;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +40,13 @@ public class Picture extends AuditMetadata {
         this.createdDate = new Date();
         this.computer = computer;
         log.debug("save new picture with name {}", name);
+    }
+
+    public ComputerDto.ViewPicture view() {
+        return new ComputerDto.ViewPicture().setName(name)
+                                            .setValue(value)
+                                            .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                            .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
     @Override

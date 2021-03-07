@@ -1,6 +1,8 @@
 package com.example.computerstorebackend.entities.harddisk;
 
+import com.example.computerstorebackend.dto.entities.HardDiskDto;
 import com.example.computerstorebackend.entities.AuditMetadata;
+import com.example.computerstorebackend.utilities.DateUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,18 +26,34 @@ public class HardDisk extends AuditMetadata {
     private Integer id;
 
     @Getter
-    @Column(name = "hard_disk_amout", nullable = false)
+    @Column(name = "key", unique = true, nullable = false)
+    private String key;
+
+    @Getter
+    @Column(name = "hard_disk_amount", nullable = false)
     private int amount;
 
     @ManyToOne
     @JoinColumn(name = "hard_disk_type_id")
     private HardDiskType hardDiskType;
 
-    public HardDisk(int amount, HardDiskType hardDiskType) {
+    public HardDisk(String key,int amount, HardDiskType hardDiskType) {
+        this.key = key;
         this.amount = amount;
         this.hardDiskType = hardDiskType;
         this.createdDate = new Date();
         log.debug("save new hard disk with amount {} and type {}", amount, hardDiskType.getKey());
+    }
+
+    public HardDiskDto.ViewHardDisk view() {
+        return new HardDiskDto.ViewHardDisk().setAmount(amount)
+                                             .setType(hardDiskType.getKey())
+                                             .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                             .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
+    }
+
+    public String getType(){
+        return hardDiskType.getKey();
     }
 
     @Override
