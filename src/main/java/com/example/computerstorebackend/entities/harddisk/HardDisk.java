@@ -37,7 +37,7 @@ public class HardDisk extends AuditMetadata {
     @JoinColumn(name = "hard_disk_type_id")
     private HardDiskType hardDiskType;
 
-    public HardDisk(String key,int amount, HardDiskType hardDiskType) {
+    public HardDisk(String key, int amount, HardDiskType hardDiskType) {
         this.key = key;
         this.amount = amount;
         this.hardDiskType = hardDiskType;
@@ -52,7 +52,7 @@ public class HardDisk extends AuditMetadata {
                                              .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
-    public String getType(){
+    public String getType() {
         return hardDiskType.getKey();
     }
 

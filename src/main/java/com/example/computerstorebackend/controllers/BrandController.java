@@ -32,7 +32,7 @@ public class BrandController {
 
     @GetMapping
     public ClientResponse<BrandDto.ViewListBrand> viewBrandPage(@RequestParam(name = "pageSize") Integer pageSize,
-                                                            @RequestParam(name = "pageNumber") Integer pageNumber) {
+                                                                @RequestParam(name = "pageNumber") Integer pageNumber) {
         return new ClientResponse<>(StatusCode.SUCCESS, brandService.viewBrandPage(pageNumber, pageSize));
     }
 }

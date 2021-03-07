@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 
 @Documented
 @Constraint(validatedBy = StringValueValidator.class)
-@Target({ElementType.PARAMETER,ElementType.METHOD, ElementType.FIELD})
+@Target({ElementType.PARAMETER, ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StringValue {
     boolean isRequired();

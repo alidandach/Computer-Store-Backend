@@ -107,7 +107,7 @@ public class ComputerDto {
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class ViewListComputer extends ClientData{
+    public static class ViewListComputer extends ClientData {
         private List<ViewComputer> computers;
     }
 }

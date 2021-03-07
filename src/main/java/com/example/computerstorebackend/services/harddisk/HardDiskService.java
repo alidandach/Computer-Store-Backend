@@ -61,6 +61,6 @@ public class HardDiskService {
 
     public HardDisk getHardDisk(String key) {
         return hardDiskRepository.findByKey(key)
-                                     .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found hard disk {}", key));
+                                 .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found hard disk {}", key));
     }
 }

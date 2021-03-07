@@ -2,8 +2,8 @@ package com.example.computerstorebackend.aop;
 
 import com.example.computerstorebackend.dto.ClientData;
 import com.example.computerstorebackend.dto.ClientResponse;
-import com.example.computerstorebackend.dto.Violation;
 import com.example.computerstorebackend.dto.Error;
+import com.example.computerstorebackend.dto.Violation;
 import com.example.computerstorebackend.enums.StatusCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -33,7 +33,8 @@ public class GlobalExceptionController {
         ClientResponse<ClientData> response = new ClientResponse<>(StatusCode.INVALID_PARAMETERS);
 
         for (ConstraintViolation<?> violation : exception.getConstraintViolations())
-            response.addViolation(new Violation(violation.getPropertyPath().toString(), violation.getMessage()));
+            response.addViolation(new Violation(violation.getPropertyPath()
+                                                         .toString(), violation.getMessage()));
 
         return response;
     }
@@ -46,7 +47,8 @@ public class GlobalExceptionController {
 
         ClientResponse<ClientData> response = new ClientResponse<>(StatusCode.INVALID_PARAMETERS);
 
-        for (FieldError error : exception.getBindingResult().getFieldErrors())
+        for (FieldError error : exception.getBindingResult()
+                                         .getFieldErrors())
             response.addViolation(new Violation(error.getField(), error.getDefaultMessage()));
 
         return response;

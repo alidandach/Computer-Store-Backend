@@ -29,7 +29,7 @@ public class HardDiskPaginationService {
     public HardDiskDto.ViewLisHardDisk viewHardDiskPage(int pageNumber, int pageSize) {
         Page<HardDisk> diskTypePage = hardDiskPaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("amount")));
         return new HardDiskDto.ViewLisHardDisk(diskTypePage.stream()
-                                                                .map(HardDisk::view)
-                                                                .collect(Collectors.toList()));
+                                                           .map(HardDisk::view)
+                                                           .collect(Collectors.toList()));
     }
 }

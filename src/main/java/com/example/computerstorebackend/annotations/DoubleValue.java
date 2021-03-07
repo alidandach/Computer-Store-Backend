@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = DoubleValueValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public  @interface DoubleValue {
+public @interface DoubleValue {
     boolean isRequired();
 
     String message() default "Invalid double value";

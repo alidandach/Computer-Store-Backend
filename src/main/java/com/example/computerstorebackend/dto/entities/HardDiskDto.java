@@ -32,7 +32,7 @@ public class HardDiskDto {
     @AllArgsConstructor
     @Accessors(chain = true)
     public static class ViewListHardDiskType extends ClientData {
-       private List<ViewHardDiskType> types;
+        private List<ViewHardDiskType> types;
     }
 
 
@@ -52,7 +52,7 @@ public class HardDiskDto {
     @Getter
     @Setter
     @Accessors(chain = true)
-    public static class ViewHardDisk extends ClientData{
+    public static class ViewHardDisk extends ClientData {
         private int amount;
         private String type;
         private String createdDate;

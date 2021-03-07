@@ -52,7 +52,7 @@ public class MemoryDto {
     @Getter
     @Setter
     @Accessors(chain = true)
-    public static class ViewMemory extends ClientData{
+    public static class ViewMemory extends ClientData {
         private int amount;
         private String type;
         private String createdDate;

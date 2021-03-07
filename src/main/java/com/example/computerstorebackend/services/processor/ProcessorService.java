@@ -65,7 +65,7 @@ public class ProcessorService {
 
         ChipsetType chipsetType = getChipsetType(addProcessor.getChipsetType());
 
-        processorRepository.save(new Processor(addProcessor,socketType,chipsetType));
+        processorRepository.save(new Processor(addProcessor, socketType, chipsetType));
     }
 
     public ProcessorDto.ViewProcessor viewProcessor(String key) {
@@ -88,6 +88,6 @@ public class ProcessorService {
 
     public Processor getProcessor(String type) {
         return processorRepository.findByKey(type)
-                                   .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found processor type {}", type));
+                                  .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found processor type {}", type));
     }
 }

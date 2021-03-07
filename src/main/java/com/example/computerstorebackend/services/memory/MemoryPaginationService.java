@@ -22,14 +22,14 @@ public class MemoryPaginationService {
     public MemoryDto.ViewListMemoryType viewMemoryTypePage(int pageNumber, int pageSize) {
         Page<MemoryType> all = memoryTypePaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new MemoryDto.ViewListMemoryType(all.stream()
-                                                            .map(MemoryType::view)
-                                                            .collect(Collectors.toList()));
+                                                   .map(MemoryType::view)
+                                                   .collect(Collectors.toList()));
     }
 
     public MemoryDto.ViewLisMemory viewMemoryPage(int pageNumber, int pageSize) {
         Page<Memory> all = memoryPaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("amount")));
         return new MemoryDto.ViewLisMemory(all.stream()
-                                                       .map(Memory::view)
-                                                       .collect(Collectors.toList()));
+                                              .map(Memory::view)
+                                              .collect(Collectors.toList()));
     }
 }

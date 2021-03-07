@@ -52,7 +52,7 @@ public class Memory extends AuditMetadata {
                                          .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
-    public String getType(){
+    public String getType() {
         return memoryType.getKey();
     }
 

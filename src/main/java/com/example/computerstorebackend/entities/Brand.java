@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "brand")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Brand extends AuditMetadata{
+public class Brand extends AuditMetadata {
     @Id
     @Getter
     @Column(name = "id")
@@ -36,7 +36,7 @@ public class Brand extends AuditMetadata{
         log.debug("save new brand with key {} and name {}", key, name);
     }
 
-    public BrandDto.ViewBrand view (){
+    public BrandDto.ViewBrand view() {
         return new BrandDto.ViewBrand().setKey(key)
                                        .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
                                        .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);

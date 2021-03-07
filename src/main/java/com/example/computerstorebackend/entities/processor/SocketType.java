@@ -35,8 +35,8 @@ public class SocketType extends AuditMetadata {
 
     public ProcessorDto.ViewSocketType view() {
         return new ProcessorDto.ViewSocketType().setKey(key)
-                                                 .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
-                                                 .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
+                                                .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
+                                                .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
     @Override
