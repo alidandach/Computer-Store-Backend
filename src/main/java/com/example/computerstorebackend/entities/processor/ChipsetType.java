@@ -11,6 +11,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The type Chipset type.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -27,12 +30,22 @@ public class ChipsetType extends AuditMetadata {
     @Column(name = "chipset_type_key", unique = true, nullable = false)
     private String key;
 
+    /**
+     * Instantiates a new Chipset type.
+     *
+     * @param key the key
+     */
     public ChipsetType(String key) {
         this.key = key;
         this.createdDate = new Date();
         log.debug("save new socket type {}", key);
     }
 
+    /**
+     * View processor dto . view chipset type.
+     *
+     * @return the processor dto . view chipset type
+     */
     public ProcessorDto.ViewChipsetType view() {
         return new ProcessorDto.ViewChipsetType().setKey(key)
                                                  .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))

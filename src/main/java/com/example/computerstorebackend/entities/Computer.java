@@ -16,6 +16,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * The type Computer.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -65,6 +68,11 @@ public class Computer extends AuditMetadata {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "computer")
     private Map<Integer, Picture> pictures;
 
+    /**
+     * Instantiates a new Computer.
+     *
+     * @param computerBuilder the computer builder
+     */
     public Computer(ComputerDto.ComputerBuilder computerBuilder) {
         this.key = computerBuilder.getKey();
         this.name = computerBuilder.getName();
@@ -78,6 +86,11 @@ public class Computer extends AuditMetadata {
         pictures = new HashMap<>();
     }
 
+    /**
+     * View computer dto . view computer.
+     *
+     * @return the computer dto . view computer
+     */
     public ComputerDto.ViewComputer view() {
         return new ComputerDto.ViewComputer().setKey(key)
                                              .setName(name)

@@ -6,7 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * The interface Brand repository.
+ */
 @Repository
 public interface BrandRepository extends JpaRepository<Brand, Integer> {
+    /**
+     * Find by key optional.
+     *
+     * @param key the key
+     * @return the optional
+     */
     Optional<Brand> findByKey(String key);
 }

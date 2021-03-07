@@ -3,6 +3,9 @@ package com.example.computerstorebackend.annotations;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * The type Boolean value validator.
+ */
 public class BooleanValueValidator implements ConstraintValidator<BooleanValue, Boolean> {
     private boolean isRequired;
 

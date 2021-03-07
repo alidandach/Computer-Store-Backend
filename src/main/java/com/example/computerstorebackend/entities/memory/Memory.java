@@ -12,6 +12,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The type Memory.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -37,6 +40,13 @@ public class Memory extends AuditMetadata {
     @JoinColumn(name = "memory_type_id")
     private MemoryType memoryType;
 
+    /**
+     * Instantiates a new Memory.
+     *
+     * @param key        the key
+     * @param amount     the amount
+     * @param memoryType the memory type
+     */
     public Memory(String key, int amount, MemoryType memoryType) {
         this.key = key;
         this.amount = amount;
@@ -45,6 +55,11 @@ public class Memory extends AuditMetadata {
         log.debug("save new memory with amount {} and type {}", amount, memoryType.getKey());
     }
 
+    /**
+     * View memory dto . view memory.
+     *
+     * @return the memory dto . view memory
+     */
     public MemoryDto.ViewMemory view() {
         return new MemoryDto.ViewMemory().setAmount(amount)
                                          .setType(memoryType.getKey())
@@ -52,6 +67,11 @@ public class Memory extends AuditMetadata {
                                          .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public String getType() {
         return memoryType.getKey();
     }

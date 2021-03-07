@@ -11,6 +11,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The type Memory type.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -27,18 +30,33 @@ public class MemoryType extends AuditMetadata {
     @Column(name = "memory_type_key", unique = true, nullable = false)
     private String key;
 
+    /**
+     * Instantiates a new Memory type.
+     *
+     * @param key the key
+     */
     public MemoryType(String key) {
         this.key = key;
         this.createdDate = new Date();
         log.debug("save new memory type with key {}", key);
     }
 
+    /**
+     * View memory dto . view memory type.
+     *
+     * @return the memory dto . view memory type
+     */
     public MemoryDto.ViewMemoryType view() {
         return new MemoryDto.ViewMemoryType().setKey(key)
                                              .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
                                              .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
+    /**
+     * Update.
+     *
+     * @param key the key
+     */
     public void update(String key) {
         log.debug("change memory type key from {} to {}", this.key, key);
         this.key = key;

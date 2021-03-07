@@ -18,6 +18,9 @@ import java.util.stream.Collectors;
 import static com.example.computerstorebackend.enums.StatusCode.DUPLICATE_RECORD;
 import static com.example.computerstorebackend.enums.StatusCode.RECORD_NOT_FOUND;
 
+/**
+ * The type Computer service.
+ */
 @Service
 @AllArgsConstructor
 public class ComputerService {
@@ -26,6 +29,11 @@ public class ComputerService {
     private final ComputerRepository computerRepository;
     private final ComputerPaginationRepository computerPaginationRepository;
 
+    /**
+     * Add computer.
+     *
+     * @param request the request
+     */
     public void addComputer(ComputerDto.AddComputer request) {
         computerRepository.findByKey(request.getKey())
                           .ifPresent(i -> {
@@ -50,10 +58,23 @@ public class ComputerService {
     }
 
 
+    /**
+     * View computer computer dto . view computer.
+     *
+     * @param key the key
+     * @return the computer dto . view computer
+     */
     public ComputerDto.ViewComputer viewComputer(String key) {
         return getComputer(key).view();
     }
 
+    /**
+     * View computer page computer dto . view list computer.
+     *
+     * @param pageNumber the page number
+     * @param pageSize   the page size
+     * @return the computer dto . view list computer
+     */
     public ComputerDto.ViewListComputer viewComputerPage(int pageNumber, int pageSize) {
         Page<Computer> diskTypePage = computerPaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new ComputerDto.ViewListComputer(diskTypePage.stream()
@@ -61,6 +82,12 @@ public class ComputerService {
                                                             .collect(Collectors.toList()));
     }
 
+    /**
+     * Gets computer.
+     *
+     * @param key the key
+     * @return the computer
+     */
     public Computer getComputer(String key) {
         return computerRepository.findByKey(key)
                                  .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found computer {}", key));

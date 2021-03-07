@@ -16,7 +16,13 @@ import lombok.experimental.Accessors;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * The type Computer dto.
+ */
 public class ComputerDto {
+    /**
+     * The type Add computer.
+     */
     @Getter
     @Setter
     public static class AddComputer {
@@ -48,6 +54,9 @@ public class ComputerDto {
         private List<AddPicture> pictures;
     }
 
+    /**
+     * The type Add picture.
+     */
     @Getter
     @Setter
     public static class AddPicture {
@@ -58,6 +67,9 @@ public class ComputerDto {
         private String value;
     }
 
+    /**
+     * The type Computer builder.
+     */
     @Getter
     @Builder
     public static class ComputerBuilder {
@@ -71,6 +83,9 @@ public class ComputerDto {
         private final HardDisk hardDisk;
     }
 
+    /**
+     * The type View computer.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -94,6 +109,9 @@ public class ComputerDto {
         private List<ViewPicture> pictures;
     }
 
+    /**
+     * The type View picture.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -104,6 +122,9 @@ public class ComputerDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View list computer.
+     */
     @Getter
     @Setter
     @AllArgsConstructor

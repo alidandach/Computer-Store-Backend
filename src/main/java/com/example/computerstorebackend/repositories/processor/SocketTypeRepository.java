@@ -6,7 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * The interface Socket type repository.
+ */
 @Repository
 public interface SocketTypeRepository extends JpaRepository<SocketType, Integer> {
+    /**
+     * Find by key optional.
+     *
+     * @param key the key
+     * @return the optional
+     */
     Optional<SocketType> findByKey(String key);
 }

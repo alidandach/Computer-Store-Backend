@@ -21,9 +21,18 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
+/**
+ * The type Global exception controller.
+ */
 @Slf4j
 @ControllerAdvice
 public class GlobalExceptionController {
+    /**
+     * On constraint validation exception client response.
+     *
+     * @param exception the exception
+     * @return the client response
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException.class)
@@ -39,6 +48,12 @@ public class GlobalExceptionController {
         return response;
     }
 
+    /**
+     * Bad requests client response.
+     *
+     * @param exception the exception
+     * @return the client response
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
@@ -54,6 +69,12 @@ public class GlobalExceptionController {
         return response;
     }
 
+    /**
+     * Parameters not found client response.
+     *
+     * @param exception the exception
+     * @return the client response
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {MissingServletRequestParameterException.class})
@@ -62,6 +83,12 @@ public class GlobalExceptionController {
         return new ClientResponse<>(StatusCode.HTTP_METHOD_NOT_SUPPORTED);
     }
 
+    /**
+     * Bad http parsing client response.
+     *
+     * @param exception the exception
+     * @return the client response
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {HttpMessageConversionException.class})
@@ -70,6 +97,12 @@ public class GlobalExceptionController {
         return new ClientResponse<>(StatusCode.INVALID_METHOD_ARGUMENTS);
     }
 
+    /**
+     * Http method not supported client response.
+     *
+     * @param exception the exception
+     * @return the client response
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = {HttpRequestMethodNotSupportedException.class})
@@ -78,6 +111,12 @@ public class GlobalExceptionController {
         return new ClientResponse<>(StatusCode.HTTP_METHOD_NOT_SUPPORTED);
     }
 
+    /**
+     * Exception client response.
+     *
+     * @param exception the exception
+     * @return the client response
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(value = Exception.class)
@@ -86,6 +125,12 @@ public class GlobalExceptionController {
         return new ClientResponse<>(StatusCode.INTERNAL_SERVER_ERROR);
     }
 
+    /**
+     * Exception client response.
+     *
+     * @param exception the exception
+     * @return the client response
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(value = ApplicationException.class)

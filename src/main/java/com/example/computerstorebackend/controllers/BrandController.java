@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+/**
+ * The type Brand controller.
+ */
 @Validated
 @RestController
 @RequestMapping("/brand")
@@ -19,17 +22,36 @@ import javax.validation.Valid;
 public class BrandController {
     private final BrandService brandService;
 
+    /**
+     * Add brand client response.
+     *
+     * @param request the request
+     * @return the client response
+     */
     @PostMapping
     public ClientResponse<ClientData> addBrand(@RequestBody @Valid BrandDto.AddBrand request) {
         brandService.addBrand(request.getKey(), request.getName());
         return new ClientResponse<>(StatusCode.SUCCESS);
     }
 
+    /**
+     * View brand client response.
+     *
+     * @param type the type
+     * @return the client response
+     */
     @GetMapping("/{type}")
     public ClientResponse<BrandDto.ViewBrand> viewBrand(@PathVariable @StringValue(isRequired = true) String type) {
         return new ClientResponse<>(StatusCode.SUCCESS, brandService.viewBrand(type));
     }
 
+    /**
+     * View brand page client response.
+     *
+     * @param pageSize   the page size
+     * @param pageNumber the page number
+     * @return the client response
+     */
     @GetMapping
     public ClientResponse<BrandDto.ViewListBrand> viewBrandPage(@RequestParam(name = "pageSize") Integer pageSize,
                                                                 @RequestParam(name = "pageNumber") Integer pageNumber) {

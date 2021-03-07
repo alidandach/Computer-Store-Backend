@@ -6,7 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * The interface Processor repository.
+ */
 @Repository
 public interface ProcessorRepository extends JpaRepository<Processor, Integer> {
+    /**
+     * Find by key optional.
+     *
+     * @param key the key
+     * @return the optional
+     */
     Optional<Processor> findByKey(String key);
 }

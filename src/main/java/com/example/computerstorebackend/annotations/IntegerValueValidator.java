@@ -3,6 +3,9 @@ package com.example.computerstorebackend.annotations;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * The type Integer value validator.
+ */
 public class IntegerValueValidator implements ConstraintValidator<IntegerValue, Integer> {
     private boolean isRequired;
 

@@ -10,6 +10,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The type Picture.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -34,6 +37,13 @@ public class Picture extends AuditMetadata {
     @JoinColumn(name = "computer_id")
     private Computer computer;
 
+    /**
+     * Instantiates a new Picture.
+     *
+     * @param name     the name
+     * @param value    the value
+     * @param computer the computer
+     */
     public Picture(String name, String value, Computer computer) {
         this.name = name;
         this.value = value;
@@ -42,6 +52,11 @@ public class Picture extends AuditMetadata {
         log.debug("save new picture with name {}", name);
     }
 
+    /**
+     * View computer dto . view picture.
+     *
+     * @return the computer dto . view picture
+     */
     public ComputerDto.ViewPicture view() {
         return new ComputerDto.ViewPicture().setName(name)
                                             .setValue(value)

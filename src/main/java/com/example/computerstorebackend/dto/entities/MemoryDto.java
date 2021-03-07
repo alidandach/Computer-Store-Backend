@@ -10,7 +10,13 @@ import lombok.experimental.Accessors;
 
 import java.util.List;
 
+/**
+ * The type Memory dto.
+ */
 public class MemoryDto {
+    /**
+     * The type Add memory type.
+     */
     @Getter
     @Setter
     public static class AddMemoryType {
@@ -18,6 +24,9 @@ public class MemoryDto {
         private String key;
     }
 
+    /**
+     * The type View memory type.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -27,6 +36,9 @@ public class MemoryDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View list memory type.
+     */
     @Getter
     @Setter
     @AllArgsConstructor
@@ -36,6 +48,9 @@ public class MemoryDto {
     }
 
 
+    /**
+     * The type Add memory.
+     */
     @Getter
     @Setter
     public static class AddMemory {
@@ -49,6 +64,9 @@ public class MemoryDto {
         private String type;
     }
 
+    /**
+     * The type View memory.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -59,6 +77,9 @@ public class MemoryDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View lis memory.
+     */
     @Getter
     @Setter
     @AllArgsConstructor

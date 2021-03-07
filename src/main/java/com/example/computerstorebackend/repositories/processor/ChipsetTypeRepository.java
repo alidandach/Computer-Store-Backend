@@ -6,7 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * The interface Chipset type repository.
+ */
 @Repository
 public interface ChipsetTypeRepository extends JpaRepository<ChipsetType, Integer> {
+    /**
+     * Find by key optional.
+     *
+     * @param key the key
+     * @return the optional
+     */
     Optional<ChipsetType> findByKey(String key);
 }

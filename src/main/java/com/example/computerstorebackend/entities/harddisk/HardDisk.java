@@ -12,6 +12,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The type Hard disk.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -37,6 +40,13 @@ public class HardDisk extends AuditMetadata {
     @JoinColumn(name = "hard_disk_type_id")
     private HardDiskType hardDiskType;
 
+    /**
+     * Instantiates a new Hard disk.
+     *
+     * @param key          the key
+     * @param amount       the amount
+     * @param hardDiskType the hard disk type
+     */
     public HardDisk(String key, int amount, HardDiskType hardDiskType) {
         this.key = key;
         this.amount = amount;
@@ -45,6 +55,11 @@ public class HardDisk extends AuditMetadata {
         log.debug("save new hard disk with amount {} and type {}", amount, hardDiskType.getKey());
     }
 
+    /**
+     * View hard disk dto . view hard disk.
+     *
+     * @return the hard disk dto . view hard disk
+     */
     public HardDiskDto.ViewHardDisk view() {
         return new HardDiskDto.ViewHardDisk().setAmount(amount)
                                              .setType(hardDiskType.getKey())
@@ -52,6 +67,11 @@ public class HardDisk extends AuditMetadata {
                                              .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
     public String getType() {
         return hardDiskType.getKey();
     }

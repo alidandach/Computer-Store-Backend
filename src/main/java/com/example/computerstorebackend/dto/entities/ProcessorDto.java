@@ -11,7 +11,13 @@ import lombok.experimental.Accessors;
 
 import java.util.List;
 
+/**
+ * The type Processor dto.
+ */
 public class ProcessorDto {
+    /**
+     * The type Add chipset type.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -20,6 +26,9 @@ public class ProcessorDto {
         private String key;
     }
 
+    /**
+     * The type View chipset type.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -29,6 +38,9 @@ public class ProcessorDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View list chipset type.
+     */
     @Getter
     @Setter
     @AllArgsConstructor
@@ -37,6 +49,9 @@ public class ProcessorDto {
         private List<ViewChipsetType> types;
     }
 
+    /**
+     * The type Add socket type.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -45,6 +60,9 @@ public class ProcessorDto {
         private String key;
     }
 
+    /**
+     * The type View socket type.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -54,6 +72,9 @@ public class ProcessorDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View list socket type.
+     */
     @Getter
     @Setter
     @AllArgsConstructor
@@ -62,6 +83,9 @@ public class ProcessorDto {
         private List<ViewSocketType> types;
     }
 
+    /**
+     * The type Add processor.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -114,6 +138,9 @@ public class ProcessorDto {
         private Boolean integratedGraphics;
     }
 
+    /**
+     * The type View processor.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -153,6 +180,9 @@ public class ProcessorDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View list processor.
+     */
     @Getter
     @Setter
     @AllArgsConstructor

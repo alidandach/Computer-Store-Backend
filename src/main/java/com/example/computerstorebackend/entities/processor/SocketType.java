@@ -11,6 +11,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The type Socket type.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -27,12 +30,22 @@ public class SocketType extends AuditMetadata {
     @Column(name = "socket_type_key", unique = true, nullable = false)
     private String key;
 
+    /**
+     * Instantiates a new Socket type.
+     *
+     * @param key the key
+     */
     public SocketType(String key) {
         this.key = key;
         this.createdDate = new Date();
         log.debug("save new socket type {}", key);
     }
 
+    /**
+     * View processor dto . view socket type.
+     *
+     * @return the processor dto . view socket type
+     */
     public ProcessorDto.ViewSocketType view() {
         return new ProcessorDto.ViewSocketType().setKey(key)
                                                 .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))

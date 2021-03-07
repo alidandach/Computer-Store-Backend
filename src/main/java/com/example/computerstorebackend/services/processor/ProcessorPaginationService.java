@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
 
+/**
+ * The type Processor pagination service.
+ */
 @Service
 @AllArgsConstructor
 public class ProcessorPaginationService {
@@ -22,6 +25,13 @@ public class ProcessorPaginationService {
     private final SocketTypePaginationRepository socketTypePaginationRepository;
     private final ChipsetTypePaginationRepository chipsetTypePaginationRepository;
 
+    /**
+     * View chipset page processor dto . view list chipset type.
+     *
+     * @param pageNumber the page number
+     * @param pageSize   the page size
+     * @return the processor dto . view list chipset type
+     */
     public ProcessorDto.ViewListChipsetType viewChipsetPage(int pageNumber, int pageSize) {
         Page<ChipsetType> all = chipsetTypePaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new ProcessorDto.ViewListChipsetType(all.stream()
@@ -29,6 +39,13 @@ public class ProcessorPaginationService {
                                                        .collect(Collectors.toList()));
     }
 
+    /**
+     * View socket page processor dto . view list socket type.
+     *
+     * @param pageNumber the page number
+     * @param pageSize   the page size
+     * @return the processor dto . view list socket type
+     */
     public ProcessorDto.ViewListSocketType viewSocketPage(int pageNumber, int pageSize) {
         Page<SocketType> all = socketTypePaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new ProcessorDto.ViewListSocketType(all.stream()
@@ -36,6 +53,13 @@ public class ProcessorPaginationService {
                                                       .collect(Collectors.toList()));
     }
 
+    /**
+     * View processor page processor dto . view list processor.
+     *
+     * @param pageNumber the page number
+     * @param pageSize   the page size
+     * @return the processor dto . view list processor
+     */
     public ProcessorDto.ViewListProcessor viewProcessorPage(int pageNumber, int pageSize) {
         Page<Processor> all = processorPaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new ProcessorDto.ViewListProcessor(all.stream()

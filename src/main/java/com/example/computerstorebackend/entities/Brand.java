@@ -9,6 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * The type Brand.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -29,6 +32,12 @@ public class Brand extends AuditMetadata {
     @Column(name = "brand_name", nullable = false)
     private String name;
 
+    /**
+     * Instantiates a new Brand.
+     *
+     * @param key  the key
+     * @param name the name
+     */
     public Brand(String key, String name) {
         this.key = key;
         this.name = name;
@@ -36,12 +45,23 @@ public class Brand extends AuditMetadata {
         log.debug("save new brand with key {} and name {}", key, name);
     }
 
+    /**
+     * View brand dto . view brand.
+     *
+     * @return the brand dto . view brand
+     */
     public BrandDto.ViewBrand view() {
         return new BrandDto.ViewBrand().setKey(key)
                                        .setCreatedDate(DateUtil.formatDate(createdDate, "dd-MM-yyyy"))
                                        .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
+    /**
+     * Update.
+     *
+     * @param key  the key
+     * @param name the name
+     */
     public void update(String key, String name) {
         if (key != null)
             setKey(key);

@@ -9,7 +9,13 @@ import lombok.experimental.Accessors;
 
 import java.util.List;
 
+/**
+ * The type Brand dto.
+ */
 public class BrandDto {
+    /**
+     * The type Add brand.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -21,6 +27,9 @@ public class BrandDto {
         private String name;
     }
 
+    /**
+     * The type View brand.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -30,6 +39,9 @@ public class BrandDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View list brand.
+     */
     @Getter
     @Setter
     @AllArgsConstructor

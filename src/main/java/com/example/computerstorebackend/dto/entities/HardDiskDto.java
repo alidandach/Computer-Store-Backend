@@ -10,7 +10,13 @@ import lombok.experimental.Accessors;
 
 import java.util.List;
 
+/**
+ * The type Hard disk dto.
+ */
 public class HardDiskDto {
+    /**
+     * The type Add hard disk type.
+     */
     @Getter
     @Setter
     public static class AddHardDiskType {
@@ -18,6 +24,9 @@ public class HardDiskDto {
         private String key;
     }
 
+    /**
+     * The type View hard disk type.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -27,6 +36,9 @@ public class HardDiskDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View list hard disk type.
+     */
     @Getter
     @Setter
     @AllArgsConstructor
@@ -36,6 +48,9 @@ public class HardDiskDto {
     }
 
 
+    /**
+     * The type Add hard disk.
+     */
     @Getter
     @Setter
     public static class AddHardDisk {
@@ -49,6 +64,9 @@ public class HardDiskDto {
         private String type;
     }
 
+    /**
+     * The type View hard disk.
+     */
     @Getter
     @Setter
     @Accessors(chain = true)
@@ -59,6 +77,9 @@ public class HardDiskDto {
         private String updatedDate;
     }
 
+    /**
+     * The type View lis hard disk.
+     */
     @Getter
     @Setter
     @AllArgsConstructor

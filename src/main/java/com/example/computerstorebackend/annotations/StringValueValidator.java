@@ -5,6 +5,9 @@ import org.springframework.util.StringUtils;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * The type String value validator.
+ */
 public class StringValueValidator implements ConstraintValidator<StringValue, String> {
     private boolean isRequired;
 

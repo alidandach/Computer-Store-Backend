@@ -6,7 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * The interface Computer repository.
+ */
 @Repository
 public interface ComputerRepository extends JpaRepository<Computer, Integer> {
+    /**
+     * Find by key optional.
+     *
+     * @param key the key
+     * @return the optional
+     */
     Optional<Computer> findByKey(String key);
 }

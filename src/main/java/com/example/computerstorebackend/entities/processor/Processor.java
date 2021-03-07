@@ -10,6 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * The type Processor.
+ */
 @Slf4j
 @Entity
 @NoArgsConstructor
@@ -86,6 +89,13 @@ public class Processor extends AuditMetadata {
     @Column(name = "integrated_graphics", nullable = false)
     private boolean integratedGraphics;
 
+    /**
+     * Instantiates a new Processor.
+     *
+     * @param dto         the dto
+     * @param socketType  the socket type
+     * @param chipsetType the chipset type
+     */
     public Processor(ProcessorDto.AddProcessor dto, SocketType socketType, ChipsetType chipsetType) {
         this.key = dto.getKey();
         this.baseClockSpeed = dto.getBaseClockSpeed();
@@ -106,6 +116,11 @@ public class Processor extends AuditMetadata {
         this.createdDate = new Date();
     }
 
+    /**
+     * View processor dto . view processor.
+     *
+     * @return the processor dto . view processor
+     */
     public ProcessorDto.ViewProcessor view() {
         return new ProcessorDto.ViewProcessor().setBaseClockSpeed(baseClockSpeed)
                                                .setMaxTurboSpeed(maxTurboSpeed)
@@ -126,10 +141,20 @@ public class Processor extends AuditMetadata {
                                                .setUpdatedDate(updatedDate != null ? DateUtil.formatDate(updatedDate, "dd-MM-yyyy") : null);
     }
 
+    /**
+     * Gets socket type.
+     *
+     * @return the socket type
+     */
     public String getSocketType() {
         return socketType.getKey();
     }
 
+    /**
+     * Gets chipset type.
+     *
+     * @return the chipset type
+     */
     public String getChipsetType() {
         return chipsetType.getKey();
     }

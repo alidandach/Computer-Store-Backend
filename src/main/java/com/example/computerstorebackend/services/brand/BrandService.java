@@ -16,12 +16,21 @@ import java.util.stream.Collectors;
 import static com.example.computerstorebackend.enums.StatusCode.DUPLICATE_RECORD;
 import static com.example.computerstorebackend.enums.StatusCode.RECORD_NOT_FOUND;
 
+/**
+ * The type Brand service.
+ */
 @Service
 @AllArgsConstructor
 public class BrandService {
     private final BrandRepository brandRepository;
     private final BrandPaginationRepository brandPaginationRepository;
 
+    /**
+     * Add brand.
+     *
+     * @param key  the key
+     * @param name the name
+     */
     public void addBrand(String key, String name) {
         brandRepository.findByKey(key)
                        .ifPresent(i -> {
@@ -32,10 +41,23 @@ public class BrandService {
 
     }
 
+    /**
+     * View brand brand dto . view brand.
+     *
+     * @param type the type
+     * @return the brand dto . view brand
+     */
     public BrandDto.ViewBrand viewBrand(String type) {
         return getBrand(type).view();
     }
 
+    /**
+     * View brand page brand dto . view list brand.
+     *
+     * @param pageNumber the page number
+     * @param pageSize   the page size
+     * @return the brand dto . view list brand
+     */
     public BrandDto.ViewListBrand viewBrandPage(int pageNumber, int pageSize) {
         Page<Brand> all = brandPaginationRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by("key")));
         return new BrandDto.ViewListBrand(all.stream()
@@ -43,6 +65,12 @@ public class BrandService {
                                              .collect(Collectors.toList()));
     }
 
+    /**
+     * Gets brand.
+     *
+     * @param key the key
+     * @return the brand
+     */
     public Brand getBrand(String key) {
         return brandRepository.findByKey(key)
                               .orElseThrow(() -> new ApplicationException(RECORD_NOT_FOUND, "not found hard disk type {}", key));
