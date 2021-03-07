@@ -13,3 +13,5 @@
 4. run docker image: docker-compose up
 
 Postman collection in the main directory: Computer Store.postman_collection.json
+
+If you need to open this code in your IDE you need to install the lombok plugin
