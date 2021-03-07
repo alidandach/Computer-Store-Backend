@@ -9,6 +9,7 @@
 ### Run docker
 1. clone the project: git clone  https://github.com/aliakdandach/Computer-Store-Backend.git
 2. navigate to the project directory: cd Computer-Store-Backend
-3. run docker image: docker-compose up
+3. package the project: ./mvnw package
+4. run docker image: docker-compose up
 
 Postman collection in the main directory: Computer Store.postman_collection.json
