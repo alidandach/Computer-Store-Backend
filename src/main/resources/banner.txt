@@ -1,0 +1,10 @@
+${AnsiColor.MAGENTA}   _____                                       _                      _____                 _
+${AnsiColor.MAGENTA}  / ____|                                     | |                    / ____|               | |
+${AnsiColor.MAGENTA} | |        ___    _ __ ___    _ __    _   _  | |_    ___   _ __    | (___    _   _   ___  | |_    ___   _ __ ___
+${AnsiColor.MAGENTA} | |       / _ \  | '_ ` _ \  | '_ \  | | | | | __|  / _ \ | '__|    \___ \  | | | | / __| | __|  / _ \ | '_ ` _ \
+${AnsiColor.MAGENTA} | |____  | (_) | | | | | | | | |_) | | |_| | | |_  |  __/ | |       ____) | | |_| | \__ \ | |_  |  __/ | | | | | |
+${AnsiColor.MAGENTA}  \_____|  \___/  |_| |_| |_| | .__/   \__,_|  \__|  \___| |_|      |_____/   \__, | |___/  \__|  \___| |_| |_| |_|
+${AnsiColor.MAGENTA}                              | |                                              __/ |
+${AnsiColor.MAGENTA}                              |_|                                             |___/
+
+                                        ${Ansi.RED} :: Spring Boot${spring-boot.formatted-version} :: ${Ansi.DEFAULT}

@@ -5,11 +5,11 @@ server:
 
 spring:
   application:
-    name: menu-system-service
+    name: computer-store-service
   datasource:
     username: postgres
     password: root
-    url: jdbc:postgresql://localhost:5432/ussd-service
+    url: jdbc:postgresql://localhost:5432/jbpm
     driver-class-name: org.postgresql.Driver
     data: classpath*:schema.sql
     initialization-mode: always
@@ -34,7 +34,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQL94Dialect
     properties:
       hibernate:
-        default_schema: menu_system
+        default_schema: computer_store
         show_sql: true
         format_sql: true
   jackson:
